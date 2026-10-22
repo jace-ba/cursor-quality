@@ -13,4 +13,4 @@ At the end of substantial work, state:
 - Anything unexpected found
 - Open questions or decisions needed from the user
 
-Report partial completion as partial. List what was done, what was not done, and what was skipped, including difficult parts.
+Report partial completion as partial. List what was done, what was not done, and what was skipped, including difficult parts. A change clearly required for the stated plan to be true is not a skipped item. Make it before closing out, unless a real block remains, and name that block. An open question is a decision you cannot resolve, not an action you could have taken.

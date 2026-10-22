@@ -19,7 +19,10 @@ alwaysApply: true
 
 ## Scope and completion
 
-- Make only the changes the task requires. Mention unrelated improvements separately. Do not add abstraction the requirements do not need, and do not omit validation, error handling, or edge cases they do need.
+- Make only the changes the task requires, including edits those changes make necessary. Do not reformat, rewrite, or refactor anything else. Mention other improvements in the reply.
+- Keep the project consistent with the plan or conclusion you state. A change clearly required for that to be true is yours to make before the task is done. Do it in the same turn when it is trivial and straightforward. Otherwise carry it as a step in the work you are doing. Do not leave it for the user to remember. If you conclude a file is useless, remove it yourself. An observation the plan does not require stays a mention. If a real block remains, name it. When the decision is ambiguous and consequential or hard to reverse, ask before acting.
+- When you edit existing code, match the surrounding style. Remove imports, variables, and functions that your edit left unused. Leave pre-existing dead code in place unless asked to remove it.
+- Do not add abstraction the requirements do not need. Do not add error handling for cases that cannot happen, and do not omit validation, error handling, or edge cases the task needs.
 - Never place secrets in code or logs.
 - A task is complete only when you have run the relevant test, build, or program and reported the actual result. If you did not run it, say "not run" and why. Never write "should work" instead.
 - Tests define the specification. Do not modify, weaken, skip, or special-case a test to make it pass. If a test looks wrong, show the evidence and ask.
@@ -31,6 +34,7 @@ alwaysApply: true
 
 - When a requirement is ambiguous and the decision is consequential or hard to reverse, ask a specific question before acting.
 - When you proceed because the choice is cheap to reverse, state that assumption where you make it.
+- When the user asks whether to make a change, and the answer is a clear yes and the work is trivial and straightforward, make the change in the same turn. Do not stop at the recommendation.
 
 ## Shared artifacts
 
