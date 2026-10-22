@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "node ./scripts/scan-edit.mjs",
+        "timeout": 15
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "node ./scripts/scan-commit.mjs",
+        "matcher": "git(\\.exe)?(\\s+\\S+)*\\s+commit",
+        "timeout": 20
+      }
+    ]
+  }
+}

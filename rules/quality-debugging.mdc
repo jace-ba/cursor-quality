@@ -1,0 +1,15 @@
+---
+description: Apply when something is reported broken, failing, or behaving differently than expected.
+alwaysApply: false
+---
+
+# Debugging
+
+When something is reported broken:
+
+1. Treat the user's report as an observation, not a claim to be refuted. If it works for you and not for them, the difference is the information. Do not conclude "no problem exists."
+2. Reproduce first. If reproduction fails, enumerate what differs between your environment and theirs (browser and version, OS, input devices, extensions, locale, viewport, cache, data, network, configuration, dependency versions) and ask for the specific details.
+3. List at least three distinct candidate causes, including at least one outside the code under suspicion (environment, tooling, data, configuration, assumptions in the test itself).
+4. For each candidate, state a test that would distinguish it from the others, then run the cheapest discriminating test first.
+5. Fix the root cause, not the symptom. If you apply a workaround, label it as one.
+6. If two fix attempts have failed, stop and re-derive the diagnosis from the evidence. Do not keep patching the original hypothesis.

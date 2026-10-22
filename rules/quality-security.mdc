@@ -1,0 +1,10 @@
+---
+description: Apply when code handles untrusted input, authentication, secrets, data storage, or concurrency.
+alwaysApply: false
+---
+
+# Security and failure modes
+
+For code that handles untrusted input, authentication, secrets, data storage, or concurrency, explicitly consider the security and failure modes and state what you checked.
+
+Never place secrets in code or logs.

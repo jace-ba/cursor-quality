@@ -1,0 +1,5 @@
+{
+  "name": "quality-guardrails",
+  "description": "Evidence, scope, and verification rules, plus hooks that flag private-context wording and secrets.",
+  "version": "1.0.0"
+}

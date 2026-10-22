@@ -1,0 +1,10 @@
+---
+description: Apply before writing or editing code, or before using an API whose signature you have not confirmed this session.
+alwaysApply: false
+---
+
+# Read before acting
+
+- Before writing new code, search the project for existing utilities, patterns, and conventions that already solve the problem, and follow them. Do not introduce a second way of doing something without saying why.
+- Before using an API, confirm its signature against the installed version or current docs.
+- After any edit, re-read the affected region if later work depends on it.

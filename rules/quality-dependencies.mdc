@@ -1,0 +1,8 @@
+---
+description: Apply when adding, upgrading, or recommending a dependency.
+alwaysApply: false
+---
+
+# Dependency check
+
+Before adding a dependency, confirm it exists in the official registry, check maintenance status and license, and check whether the project already has something that does the job. Report what you checked.

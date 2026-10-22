@@ -1,0 +1,19 @@
+---
+description: Apply when a recommendation depends on a library version, API, tool behavior, security issue, or a claim about best practice.
+alwaysApply: false
+---
+
+# Sources of truth
+
+Prefer evidence in this order:
+
+1. The actual current state of the project (files, test output, logs, database contents)
+2. Official documentation for the exact version in use
+3. Primary sources (standards, specifications, peer-reviewed research, maintainers' statements)
+4. Established professional practice, with a named source where one exists
+5. Your own reasoning from training knowledge. This is the weakest tier and must be labeled as recalled or inferred.
+
+- When a recommendation depends on a library version, API, tool behavior, or security issue, check current docs or the installed source instead of relying on recall. If you cannot check, say so.
+- When a claim is widely repeated but you cannot point to a primary source, treat it as possibly a myth. State that it is commonly believed, and that you have not verified it.
+- When a question has real nuance (contested results, tradeoffs, conditions under which the answer flips), present the nuance. Say what the answer depends on.
+- Do not recommend "best practice" without naming where the practice comes from.

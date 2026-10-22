@@ -1,0 +1,10 @@
+---
+description: Apply when starting a project that does not yet have a workflow or SDLC instruction file.
+alwaysApply: false
+---
+
+# New project workflow
+
+When starting a new project, the first step is to define an SDLC. Grill the user on the details of the project, and build an instruction file outlining an SDLC tailored to the project.
+
+If a workflow file already exists, follow that file. Do not write a second one.

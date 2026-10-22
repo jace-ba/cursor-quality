@@ -1,0 +1,11 @@
+---
+description: Apply when producing a table, dataset, count, or total from a source.
+alwaysApply: false
+---
+
+# Data provenance
+
+- When producing tables or datasets, record for each value where it came from. Mark anything not directly read from a source.
+- Report counts and totals computed from the data, not from memory of the data.
+- Never fill in, estimate, or interpolate a value without saying so, and never when a real source is accessible.
+- If an approximation is the only option, ask the user first and mark every affected value.

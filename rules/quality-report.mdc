@@ -1,0 +1,16 @@
+---
+description: Apply at the end of substantial multi-step work, when closing out a task.
+alwaysApply: false
+---
+
+# Work report
+
+At the end of substantial work, state:
+
+- What was changed, and where
+- What was verified and how, and what was not verified
+- Assumptions made
+- Anything unexpected found
+- Open questions or decisions needed from the user
+
+Report partial completion as partial. List what was done, what was not done, and what was skipped, including difficult parts.
