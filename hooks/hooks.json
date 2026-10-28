@@ -18,12 +18,6 @@
         "matcher": "git(\\.exe)?(\\s+\\S+)*\\s+(commit|push)",
         "timeout": 20
       }
-    ],
-    "sessionStart": [
-      {
-        "command": "node ./scripts/session-context.mjs",
-        "timeout": 20
-      }
     ]
   }
 }

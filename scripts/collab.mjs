@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const AUTHOR_WINDOW_MS = 60 * DAY_MS;
@@ -140,4 +141,17 @@ export function collabStatus(cwd) {
   } catch {
     return { collaborative: false, reason: "" };
   }
+}
+
+function ranDirectly() {
+  const entry = process.argv[1];
+  if (!entry) return false;
+  return path.resolve(entry).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase();
+}
+
+if (ranDirectly()) {
+  const roots = process.argv.slice(2).filter(Boolean);
+  const targets = roots.length > 0 ? roots : [process.cwd()];
+  const results = targets.map((root) => ({ root, ...collabStatus(root) }));
+  process.stdout.write(`${JSON.stringify(results.length === 1 ? results[0] : results)}\n`);
 }

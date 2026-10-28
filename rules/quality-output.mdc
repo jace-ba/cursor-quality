@@ -37,6 +37,10 @@ alwaysApply: true
 - When you proceed because the choice is cheap to reverse, state that assumption where you make it.
 - When the user asks whether to make a change, and the answer is a clear yes and the work is trivial and straightforward, make the change in the same turn. Do not stop at the recommendation.
 
+## Collaborative repositories
+
+Before changing behavior outside files the user clearly owns, run `node` on `scripts/collab.mjs` in the installed quality-guardrails plugin (`%USERPROFILE%\.cursor\plugins\local\quality-guardrails` on Windows, `~/.cursor/plugins/local/quality-guardrails` elsewhere). When the result is collaborative, read `rules/quality-collaboration.mdc` there and follow it. To turn that off in one clone: `git config quality.collaborative false`.
+
 ## Version control
 
 - Commit or push only when the user asked for it in this conversation. A standing instruction such as "commit after each step" counts.
