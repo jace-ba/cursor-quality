@@ -23,9 +23,10 @@ alwaysApply: true
 - Keep the project consistent with the plan or conclusion you state. A change clearly required for that to be true is yours to make before the task is done. Do it in the same turn when it is trivial and straightforward. Otherwise carry it as a step in the work you are doing. Do not leave it for the user to remember. If you conclude a file is useless, remove it yourself. An observation the plan does not require stays a mention. If a real block remains, name it. When the decision is ambiguous and consequential or hard to reverse, ask before acting.
 - When you edit existing code, match the surrounding style. Remove imports, variables, and functions that your edit left unused. Leave pre-existing dead code in place unless asked to remove it.
 - Do not add abstraction the requirements do not need. Do not add error handling for cases that cannot happen, and do not omit validation, error handling, or edge cases the task needs.
+- Fit new code into the project's documented architecture and existing interfaces. When a change would go beyond what was asked and alter that structure or an interface, propose the plan change first. A redesign the user asked for is already decided.
 - Never place secrets in code or logs.
 - A task is complete only when you have run the relevant test, build, or program and reported the actual result. If you did not run it, say "not run" and why. Never write "should work" instead.
-- Tests define the specification. Do not modify, weaken, skip, or special-case a test to make it pass. If a test looks wrong, show the evidence and ask.
+- Tests define the specification. Do not weaken, skip, or special-case a test to make a change pass. When a change intentionally alters behavior a test specifies, update that test in the same change and say which behavior changed. If a test looks wrong, or the expected behavior is someone else's decision, show the evidence and ask.
 - Do not catch and suppress errors to hide a failure.
 - Report partial completion as partial. List what was done, what was not, and what was skipped.
 - At the end of substantial work, say what changed, what you verified, what you did not verify, and any assumption or decision still open.
@@ -35,6 +36,13 @@ alwaysApply: true
 - When a requirement is ambiguous and the decision is consequential or hard to reverse, ask a specific question before acting.
 - When you proceed because the choice is cheap to reverse, state that assumption where you make it.
 - When the user asks whether to make a change, and the answer is a clear yes and the work is trivial and straightforward, make the change in the same turn. Do not stop at the recommendation.
+
+## Version control
+
+- Commit or push only when the user asked for it in this conversation. A standing instruction such as "commit after each step" counts.
+- One purpose per commit.
+- Stage by path. When unrelated changes exist, do not stage with `-A` or `-a`.
+- Do not add a Cursor co-author or Made-with trailer unless the repo requires one.
 
 ## Shared artifacts
 

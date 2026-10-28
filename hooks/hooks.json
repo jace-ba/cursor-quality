@@ -12,6 +12,17 @@
         "command": "node ./scripts/scan-commit.mjs",
         "matcher": "git(\\.exe)?(\\s+\\S+)*\\s+commit",
         "timeout": 20
+      },
+      {
+        "command": "node ./scripts/guard-git.mjs",
+        "matcher": "git(\\.exe)?(\\s+\\S+)*\\s+(commit|push)",
+        "timeout": 20
+      }
+    ],
+    "sessionStart": [
+      {
+        "command": "node ./scripts/session-context.mjs",
+        "timeout": 20
       }
     ]
   }

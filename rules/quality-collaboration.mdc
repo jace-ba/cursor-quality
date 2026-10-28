@@ -1,0 +1,49 @@
+---
+description: Apply in a repository this plugin marks collaborative (other recent authors on the default branch, a CODEOWNERS file, a protected default branch, or quality.collaborative set to true). Check in-flight work and owners before changing behavior outside the user's files, and use a branch, a pull request, and CI.
+alwaysApply: false
+---
+
+# Quality collaboration
+
+This file applies when the repository is collaborative. A local `quality.collaborative` value of `true` or `false` overrides detection. Small fixes in files the user clearly owns skip the checks in "Before starting work".
+
+## Before starting work that adds or changes behavior outside files the user clearly owns
+
+- Run `git fetch --prune` before any claim about what exists on the remote.
+- Read the team plan or workflow file for owners and the current sprint.
+- List remote branches, and open pull requests if `gh` is available, that touch the same area.
+- On overlap, or when the work belongs to someone else, stop. Name the person and the branch, and ask.
+- Skip these checks for small fixes in the user's own area.
+
+## Scope
+
+- Map the request to the user's assigned tasks.
+- Flag work outside the user's role or sprint once, and ask before building it.
+
+## Shared surfaces
+
+- Changes to shared contracts get flagged once: API signatures, schema, CI and tool configuration, dependencies, and lockfiles. Say who owns each one. The user's instruction to proceed counts as agreement.
+- Never rewrite a teammate's section of a shared doc. Draft the proposed change as text for the team.
+
+## Branches
+
+- Branch from a freshly fetched default branch.
+- Do not commit on the default branch unless the repo opted into trunk-based pushes (`quality.allowDefaultBranchPush` set to `true`).
+- Push the branch and open a pull request only when asked, against the correct base.
+- Never force-push a shared branch or rebase other people's commits.
+
+## CI
+
+- Read the workflow file, and match its runtime versions.
+- Run the fast checks locally before pushing: lint, type check, and affected tests. Leave long suites, matrix builds, and database containers to CI.
+- After pushing, check the run (`gh pr checks` or `gh run list`) and report the actual result, including "still running".
+- Do not edit CI config to make a check pass.
+
+## Size and tests
+
+- One coherent change per pull request. Split the work otherwise.
+- Update or add tests for changed behavior in the same pull request.
+
+## Close-out
+
+Report the branch, the pull request state, the CI result, and anything teammates need to know.
