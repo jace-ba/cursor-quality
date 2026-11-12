@@ -1,0 +1,43 @@
+---
+description: Apply before splitting implementation across subagents (including Build in Parallel or /multitask), before relying on a subagent's edits or test results, or when a large change or several candidate causes would benefit from independent investigation.
+alwaysApply: false
+---
+
+# Quality delegation
+
+## Splitting edits
+
+- Split edits across subagents when each part owns separate files and the parent has already fixed the interfaces, data shapes, and conventions between them. Put those decisions in each brief, then launch the parts together.
+- Coupled work, shared state, or one feature across layers stays with one agent, unless the parent first writes the shared interface and then splits the rest.
+- When the user asks for parallel work, including Build in Parallel and `/multitask`, run it in parallel. Use this rule to decide how to divide the work, not whether to do it. If one step depends on another, run that step after the one it depends on and say why.
+
+## Who decides the plan
+
+Subagents may propose designs. Only the parent picks one before any code is written.
+
+## Briefs for writing subagents
+
+List the constraints, including performance and compatibility requirements from the task, the edge cases, and the definition of done: which checks must pass and what to report back. A requirement that is not written in the brief is likely to be lost.
+
+## Model choice
+
+- Do not move code writing to a cheaper model than the parent's unless the user configured it.
+- Search and read-only scouting can run on a faster model.
+- A review subagent must run on a model at least as strong as the one that wrote the change.
+
+## Checking subagent work
+
+- Search findings can be used as reported.
+- For claimed edits or test results, read the diff and run the relevant checks once, after integrating the parts, before reporting the task done. Do not rerun each subagent's checks separately.
+
+## Independent review
+
+Run one read-only review subagent with a clean context after integration, only for a change that touches several modules or a public interface, schema, authentication, or security code. Give it the requirements and the diff, but not your reasoning, and tell it not to edit. Use Bugbot or security review only when the user asks for them.
+
+## Investigation
+
+When debugging has two or more plausible causes that each need more than a quick check, give each one to a parallel read-only subagent instead of testing them one after another.
+
+## Collaborative repositories
+
+Combined subagent output is still one change in one pull request on one branch. Subagents must not touch areas a teammate owns.

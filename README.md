@@ -14,7 +14,7 @@ node install.mjs
 
 That copies the plugin to `%USERPROFILE%\.cursor\plugins\local\quality-guardrails`, replacing any previous copy. It does not copy `.git` or `install.mjs`.
 
-Then run **Developer: Reload Window**. In Customize, the plugin should show one always-on rule, eleven task-scoped rules, and three hooks.
+Then run **Developer: Reload Window**. In Customize, the plugin should show one always-on rule, twelve task-scoped rules, and three hooks.
 
 ## Update
 
@@ -26,6 +26,9 @@ Edit this repository, run `node install.mjs` again, and reload the window.
 - Before `git commit`, the message and the staged diff get the same checks. A hit asks for review.
 - Before `git commit`, a Cursor co-author or Made-with trailer is denied unless this clone sets `quality.allowAgentTrailer` to `true`.
 - The always-on rule tells the agent to run `scripts/collab.mjs` before changing behavior outside files the user clearly owns. When that check reports a collaborative repository, the agent reads and follows the collaboration rule.
+- The delegation rule says when to split edits across subagents, what a writing brief must include, and when to review a change or investigate a bug in parallel.
+
+Why these rules exist, and the sources behind the collaboration and delegation rules, is in [docs/design-notes.md](docs/design-notes.md).
 
 When a tool fails, the always-on rule already tells the agent to report the failure and not fill in a result. There is no hook for that.
 
